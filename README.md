@@ -2,6 +2,8 @@
 
 A cozy, Chrome dinosaur–inspired endless runner featuring Francis, a round plush lion. Built with HTML, CSS, and the Canvas API. No build step or runtime dependencies.
 
+![Francis endless runner with a plush lion, broccoli, washing machines, and a mane length meter](docs/screenshot.png)
+
 ## Play locally
 
 Open `index.html` in a browser, or serve the folder:
