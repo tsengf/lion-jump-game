@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f5ed">
+  <meta name="description" content="Meet Francis, a little plush lion with a big appetite. Jump, duck, and munch broccoli to grow your mane in an endless savanna adventure.">
+  <title>Francis — The Little Lion Run</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <main class="page">
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="Francis home">
+        <svg viewBox="0 0 52 52" aria-hidden="true"><path d="M26 4 32 7 39 7 42 14 48 19 46 27 47 34 40 39 36 46 28 46 21 49 15 43 8 40 8 32 4 25 8 18 11 11 19 10Z" fill="#b96f3e"/><ellipse cx="26" cy="27" rx="16" ry="17" fill="#e7b970"/><path d="M16 24h2m16 0h2" stroke="#51392a" stroke-width="3" stroke-linecap="round"/><ellipse cx="26" cy="32" rx="10" ry="7" fill="#f6e6c6"/><path d="m23 29 3 3 3-3Z" fill="#51392a"/><path d="M26 32v3m-4 0q4 4 8 0" fill="none" stroke="#51392a" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span>francis<span class="brand-subtitle">THE LITTLE LION RUN</span></span>
+      </a>
+      <span class="header-note"><span class="live-dot"></span>A small escape into the wild</span>
+      <button class="icon-button" id="sound-toggle" aria-pressed="false" aria-label="Turn sound on" title="Turn sound on"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m11 5-5 4H3v6h3l5 4V5Z"/><path id="sound-waves" d="m16 9 5 6m0-6-5 6"/></svg><span id="sound-label">Sound off</span></button>
+    </header>
+
+    <section class="intro" aria-labelledby="page-title">
+      <div class="eyebrow"><span></span> A SOFT LITTLE LION. AN ENDLESS ADVENTURE.</div>
+      <h1 id="page-title">Small paws. <em>Big adventure.</em></h1>
+      <p>Meet Francis. Jump the washers, duck the branches, and grow a glorious broccoli-powered mane.</p>
+    </section>
+
+    <section class="game-card" aria-label="Francis endless runner">
+      <div class="game-toolbar">
+        <div class="scores">
+          <div class="stat"><span class="stat-label">YOUR SCORE</span><strong id="score">00000</strong></div>
+          <span class="stat-divider"></span>
+          <div class="stat best-stat"><span class="stat-label"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 2h6v5a3 3 0 0 1-6 0V2Zm0 1H2v2a3 3 0 0 0 3 3m6-5h3v2a3 3 0 0 1-3 3M8 10v3m-3 1h6"/></svg> PERSONAL BEST</span><strong id="best">00000</strong></div>
+        </div>
+        <div class="mane" id="mane" aria-label="Mane: 3 tufts. Each hit removes one tuft.">
+          <div class="mane-heading"><span><svg viewBox="0 0 18 18" aria-hidden="true"><path d="m9 1 3 2 3 1 1 4 1 3-3 3-2 3-4-1-3-1-2-4-1-3 3-3Z"/><circle cx="9" cy="9" r="4"/></svg> MANE LENGTH</span><strong id="hair-label">3 TUFTS</strong></div>
+          <div class="hair-meter" aria-hidden="true"><span id="hair-fill"></span></div>
+        </div>
+        <button class="pause-button" id="pause-button" aria-label="Pause game" title="Pause (P)" disabled><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 5v10M13 5v10"/></svg></button>
+      </div>
+
+      <div class="playfield" id="playfield">
+        <canvas id="game" aria-label="Francis runs through a savanna. Use Space to jump over washing machines and Down to duck under branches. Touch broccoli to grow his mane. Losing all his hair ends the game." tabindex="0"></canvas>
+        <div class="scene-tag"><span class="sun-dot"></span><span id="level-label">LEVEL 1 · THE GOLDEN GRASSLANDS</span></div>
+        <div class="overlay" id="overlay">
+          <div class="overlay-inner">
+            <span class="overlay-kicker" id="overlay-kicker">YOUR NEXT LITTLE ADVENTURE</span>
+            <h2 id="overlay-title">Wild at heart.<br>Soft everywhere else.</h2>
+            <p id="overlay-description">Munch broccoli. Dodge the spin cycle. Keep your fluff.</p>
+            <button class="start-button" id="start-button">Let’s roam <span aria-hidden="true">↗</span></button>
+            <span class="start-hint" id="start-hint">or press <kbd>space</kbd> to start</span>
+          </div>
+        </div>
+        <div class="toast" id="toast" role="status" aria-live="polite"></div>
+      </div>
+
+      <div class="game-footer"><span><span class="live-dot"></span><span id="game-status">A little courage goes a long way.</span></span><span class="desktop-hint">SPACE to jump <span>·</span> ↓ to duck</span><span class="mobile-hint">Tap the buttons below to play</span></div>
+    </section>
+
+    <div class="touch-controls" aria-label="Game controls">
+      <button id="jump-control"><span>↑</span> Jump</button>
+      <button id="duck-control"><span>↓</span> Duck <small>hold</small></button>
+    </div>
+
+    <section class="field-guide" aria-label="How to play">
+      <div class="guide-title"><span class="eyebrow">THE LITTLE FIELD GUIDE</span><span>Easy to learn. Hard to leave.</span></div>
+      <div class="guide-grid">
+        <article class="guide-item"><span class="guide-icon jump-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 25h20M16 21V6m-6 6 6-6 6 6"/></svg></span><div><h3>A hop, skip & a jump <kbd>SPACE</kbd></h3><p>Hop over washing machines. Hold <kbd>↓</kbd> to duck under low branches.</p></div></article>
+        <article class="guide-item"><span class="guide-icon snack-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M14 27V16m4 11V16m-2 5-7-7m7 7 7-7"/><path d="M8 17a6 6 0 0 1-3-11 6 6 0 0 1 10-2 6 6 0 0 1 10 2 6 6 0 0 1-1 11Z"/></svg></span><div><h3>Good greens. Great hair.</h3><p>Touch broccoli to eat it automatically. Every bite grows your mane by one tuft.</p></div></article>
+        <article class="guide-item"><span class="guide-icon mane-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="m16 3 5 3 5 2 1 6 2 6-5 4-4 5-6-2-6-2-2-6-3-5 5-5Z"/><circle cx="16" cy="16" r="7"/></svg></span><div><h3>Protect the glorious fluff</h3><p>Start with 3 tufts. Each obstacle hit trims one. No hair left? Game over. Each level gets faster.</p></div></article>
+      </div>
+    </section>
+    <footer class="page-footer"><span>Made for the joy of doing a little less.</span><span>Stay soft. Run wild. <span class="footer-paw">✦</span></span></footer>
+    <p class="sr-only" id="announcer" role="status" aria-live="polite"></p>
+  </main>
+</body>
+</html>
